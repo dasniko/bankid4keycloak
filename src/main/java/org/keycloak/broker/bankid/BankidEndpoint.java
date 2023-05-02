@@ -63,7 +63,7 @@ public class BankidEndpoint {
 
        private static String qrCodePrefix = "bankid.";
 
-	@Context
+//	@Context
 	protected KeycloakSession session;
 
 	public BankidEndpoint(BankidIdentityProvider provider, BankidIdentityProviderConfig config,
@@ -76,6 +76,7 @@ public class BankidEndpoint {
                 provider.getSession().getProvider(InfinispanConnectionProvider.class);
     	this.actionTokenCache =
             infinispanConnectionProvider.getCache(InfinispanConnectionProvider.ACTION_TOKEN_CACHE);
+		this.session = provider.getSession();
 	}
 
 	@GET
